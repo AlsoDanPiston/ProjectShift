@@ -49,7 +49,20 @@ const findFrequency = function(array) {
 };
 
 const isPalindrome = function(str) {
-  // your code here - don't forget to return a boolean!
+  // get the index of the last letter to compare vs letter with 0 index, and then subtract as iterate goes up
+  let j = str.length - 1;
+  
+  // start off assuming str is a palindrome, easier to check if one letter diff than all letters are same
+  let palindromeResult = true;
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i].toLowerCase() !== str[j].toLowerCase()) {
+      palindromeResult = false;
+    }
+    j--; 
+  }
+
+  return palindromeResult;
 };
 
 const largestPair = function(array) {
