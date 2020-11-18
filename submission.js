@@ -66,7 +66,21 @@ const isPalindrome = function(str) {
 };
 
 const largestPair = function(array) {
-  // your code here - don't forget to return a number!
+  // set up local variables at 0
+  let result = 0;
+  let tempVal = 0;
+
+  // loop through all but the last item in array
+  for (let i = 0; i < array.length - 1; i++) {
+    tempVal = array[i] * array[i + 1];
+    
+    // see if the product of these consecutive two entries are bigger than the previous, save it if so
+    if (tempVal > result) {
+      result = tempVal;
+    }
+  }
+
+  return result;
 };
 
 const removeParenth = function(str) {
