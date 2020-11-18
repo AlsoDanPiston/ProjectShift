@@ -7,7 +7,45 @@ const findSum = function(array) {
 };
 
 const findFrequency = function(array) {
-  // your code here - don't forget to return an object!
+    // set empty object to hold these
+  let countEachObj = {};
+
+  // loop through array and count instances
+  array.forEach(x => {
+    if (countEachObj[x]) {
+      countEachObj[x] += 1;
+    } else {
+      countEachObj[x] = 1;
+    }
+  })
+
+  // initialize max (assumes there will be at least one letter)
+  let max = 0;
+  let maxKey = '';
+
+  // initialize min to be the first object item (to compare each other item against)
+  let minKey = Object.keys(countEachObj)[0];
+  let min = countEachObj[minKey];
+
+  // see which is most or least
+  for (let i in countEachObj) {
+    if (countEachObj[i] > max) {
+      max = countEachObj[i];
+      maxKey = i;
+    } else if (countEachObj[i] < min) {
+      min = countEachObj[i];
+      minKey = i;
+    } else {
+      // pass - we don't care
+    }
+  }
+
+  // make the results pretty
+  let resultObj = {};
+  resultObj['most'] = maxKey;
+  resultObj['least'] = minKey;
+
+  return resultObj;
 };
 
 const isPalindrome = function(str) {
