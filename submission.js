@@ -2,6 +2,9 @@ const findSum = function(array) {
   // set the function that adds values
   const sumVar = (x, y) => x + y;
 
+  // find average - doesn't ask for this to be returned
+  const averageVar = sumVar / array.length;
+  
   // apply with reduce method and return it
   return array.reduce(sumVar);
 };
