@@ -88,5 +88,38 @@ const removeParenth = function(str) {
 };
 
 const scoreScrabble = function(str) {
-  // your code here - don't forget to return a number!
+  let runningTotal = 0;
+
+  // set up point arrays
+  const onePoint = ['a', 'e', 'i', 'o', 'u', 'l', 'n', 'r', 's', 't'];
+  const twoPoints = ['d', 'g'];
+  const threePoints = ['b', 'c', 'm', 'p'];
+  const fourPoints = ['f', 'h', 'v', 'w', 'y'];
+  const fivePoints = ['k'];
+  const eightPoints = ['j', 'x'];
+  const tenPoints =  ['q', 'z'];
+
+  // iterate the string
+  for (let i of str) {
+    // see which array i is in and add that many points
+    if (onePoint.includes(i)) {
+      runningTotal += 1;
+    } else if (twoPoints.includes(i)) {
+      runningTotal += 2;
+    } else if (threePoints.includes(i)) {
+      runningTotal += 3;
+    } else if (fourPoints.includes(i)) {
+      runningTotal += 4;
+    } else if (fivePoints.includes(i)) {
+      runningTotal += 5;
+    } else if (eightPoints.includes(i)) {
+      runningTotal += 8;
+    } else if (tenPoints.includes(i)) {
+      runningTotal += 10;
+    } else {
+      console.log(`${i} not found in curren point system.`)
+    }
+  }
+
+  return runningTotal;
 };
